@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>pudim clicker</title>
     <link rel="stylesheet" href="css.css">
+    <link rel="icon" href="imgs/favicon.ico">
 </head>
 
 <body>
@@ -19,10 +20,14 @@
             <div id="pudim">
                 <img src="https://www.ganachedocaria.com.br/upload/prod/pudim_ganache.png" alt="" onclick="mais_pontos()">
             </div>
-            <button onclick="Upgrade(1,50)">Uprade: pudins +1 (50 pudins)</button>
-            <button onclick="Upgrade(3,150)">Upgrade: pudins +3 (150 pudins)</button>
-            <button onclick="Upgrade(5,450)">Upgrade: pudins +5 (450 pudins)</button>
+
+            <div id="pudim50"></div>
+            <div id="pudim150"></div>
+            <div id="pudim450"></div>
+            <div id="pudim700"></div>
         </div>
+
+        <div id="presente"></div>
 
         <audio id="clickSoud" src="sounds/duolingo-correct.mp3"></audio>
 

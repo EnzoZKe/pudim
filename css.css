@@ -34,6 +34,7 @@ main .pontis button {
     background-color: rgb(143, 110, 18);
     border-radius: 5px;
     border:solid rgb(0, 0, 0) 1px;
+    cursor: pointer;
 }
 
 main .pontis img {
@@ -56,4 +57,9 @@ footer{
 
 footer p {
     width: fit-content;
+}
+
+main #presente img {
+    width: 100px;
+    display: flex;
 }
