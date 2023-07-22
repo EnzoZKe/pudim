@@ -1,55 +1,42 @@
 //debugger
 var pontos = 0
 var upgrades = 0
+var PontosAutomaticos = 0
 
 function mais_pontos() {
     pontos++
     document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
+
+    var audio = document.getElementById("clickSoud")
+    audio.pause();
+    audio.currentTime = 0.3;
+    audio.play()
 }
 
+function Upgrade(Aumenta,Preco) {
 
-function autoPonto() {
-    if (pontos >= 50) {
-        pontos = pontos - 50
+    if (pontos >= Preco) {
+        pontos -= Preco
         upgrades++
+        PontosAutomaticos += Aumenta
+
+        document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
         document.getElementById("upgrades").innerHTML = `você tem ${upgrades} upgrade`
 
-        setInterval((mais_pontos) => {
-        pontos++
-        document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
-        }, 500);
-    } else {
-        alert("Hey, você precisa de 50 pudins")
+    }else {
+        alert(`Hey, você precisa de ${Preco} pudins`)
     }
 }
 
-function autoPonto2() {
-    if (pontos >= 150) {
-        pontos = pontos - 150
-        upgrades++
-        document.getElementById("upgrades").innerHTML = `você tem ${upgrades} upgrade`
+setInterval((mais_pontos) => {
+    pontos += PontosAutomaticos
+    document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
 
-        setInterval((mais_pontos) => {
-        pontos = pontos + 3
-        document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
-        }, 500);
-    } else {
-        alert("Hey, você precisa de 150 pudins")
+    if (PontosAutomaticos >= 1) {
+        var audio = document.getElementById("clickSoud")
+        audio.pause();
+        audio.currentTime = 0.3;
+        audio.play()
     }
-}
 
-function autoPonto3() {
-    if (pontos >= 450) {
-        pontos = pontos - 450
-        upgrades++
-        document.getElementById("upgrades").innerHTML = `você tem ${upgrades} upgrade`
-
-        setInterval((mais_pontos) => {
-        pontos = pontos + 5
-        document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
-        }, 500);
-    } else {
-        alert("Hey, você precisa de 450 pudins")
-    }
-}
-
+}, 500);
