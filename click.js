@@ -44,7 +44,7 @@ function mais_pontos() {
 
     var audio = document.getElementById("clickSoud")
     audio.pause();
-    audio.currentTime = 0.3;
+    audio.currentTime = 0.2;
     audio.play()
 
     // sando UpgradesValores[id].Custo, você pode continuar fazendo o upgrade só aparecerse a pessoa tiver pontos 
@@ -56,12 +56,18 @@ function mais_pontos() {
 function Upgrade(Aumenta, Preco, index) {
 
     if (pontos >= Preco) {
+
+        var audio = document.getElementById("gastaPudim")
+        audio.pause();
+        //audio.currentTime = 0.2;
+        audio.play()
+
         pontos -= Preco
         upgrades++
         PontosAutomaticos += Aumenta
 
         //Aqui aumentamos o valor do preço somando 5 ao valor atual
-        UpgradesValores[index].Custo = UpgradesValores[index].Custo + 50 / 100 * UpgradesValores[index].Custo
+        UpgradesValores[index].Custo = parseInt(UpgradesValores[index].Custo + 50 / 100 * UpgradesValores[index].Custo)
 
         document.getElementById("mostraPontos").innerHTML = `pudins: ${pontos}`
         document.getElementById("upgrades").innerHTML = `você tem ${upgrades} upgrade`
@@ -124,7 +130,7 @@ function presente() {
     console.log(PosicaoAleatoriaX,PosicaoAleatoriaY);
 
     // para ficar mais justo criei um tempo aleatorio kkk
-    var Tempo = parseInt(Math.random() * 30000)
+    //var Tempo = parseInt(Math.random() * 30000)
 
     document.getElementById("presente").innerHTML =
     `<img src="imgs/presente.png" alt="" class="pres" onclick="recebePresente()">`
@@ -136,11 +142,17 @@ function presente() {
     //o set time out é um delay ele aguardara o tempo aleatorio e depois chamara a função para criar o presente
     setTimeout(() => {
         presente()
-    }, Tempo);
+    }, 150000);
 }
 
 function recebePresente(){
+    var audio = document.getElementById("gift")
+    audio.pause();
+    //audio.currentTime = 0.2;
+    audio.play()
+
     alert("Parabéns, você conseguiu um presente!, pegue estes pudins!")
+
     if (upgrades <= 5) {
         pontos = pontos + 100
     } else {

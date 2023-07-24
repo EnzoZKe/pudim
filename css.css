@@ -23,6 +23,15 @@ h1{
     border-radius: 5px;
 }
 
+header .collab img{
+    width: 100px;
+}
+
+header .collab .zek:hover{
+    width: 100px;
+     content: url(imgs/E_logo-2.png);
+}
+
 main {
     height: calc(100% - 200px);
     display: flex;
